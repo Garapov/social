@@ -3,7 +3,8 @@ import colors from 'vuetify/es5/util/colors'
 export default {
   target: 'static',
   router: {
-    base: '/social/'
+    base: '/social/',
+    // middleware: ['auth']
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -45,7 +46,8 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
-    '@nuxtjs/firebase'
+    '@nuxtjs/firebase',
+    '@nuxtjs/toast',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -72,12 +74,25 @@ export default {
     },
     services: {
       auth: {
-        ssr: true
-      },
-      database: true,
-      performance: true,
-      analytics: true,
+        persistence: 'local', // default
+        initialize: {
+          onAuthStateChangedAction: 'onAuthStateChangedAction',
+          subscribeManually: false
+        },
+        ssr: false
+      }
     }
+  },
+  toast: {
+    position: 'bottom-right',
+    duration: 3000,
+    keepOnHover: true,
+    action : {
+      text : 'Close',
+      onClick : (e, toastObject) => {
+          toastObject.goAway(0);
+      }
+    },
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
