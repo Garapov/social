@@ -27,7 +27,7 @@
                 <v-form v-if="authType === 'login'">
                     <v-text-field
                         v-model="email"
-                        label="Email"
+                        label="Email *"
                         type="email"
                         :error-messages="loginObject.errors.code === 'auth/user-not-found' ? loginObject.errors.message : ''"
                         required
@@ -36,7 +36,7 @@
                     ></v-text-field>
                     <v-text-field
                         v-model="password"
-                        label="Password"
+                        label="Password *"
                         type="password"
                         :error-messages="loginObject.errors.code === 'auth/wrong-password' ? loginObject.errors.message : ''"
                         required
@@ -60,7 +60,7 @@
                 <v-form v-if="authType === 'register'">
                     <v-text-field
                         v-model="email"
-                        label="Email"
+                        label="Email *"
                         type="email"
                         required
                         outlined
@@ -68,7 +68,7 @@
                     ></v-text-field>
                     <v-text-field
                         v-model="password"
-                        label="Password"
+                        label="Password *"
                         type="password"
                         required
                         outlined
