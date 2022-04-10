@@ -110,6 +110,11 @@
           text: 'Components',
           link: 'components'
         }
+        ,
+        {
+          text: 'List',
+          link: 'list'
+        }
       ],
       menu: {
         selectedItem: 0,

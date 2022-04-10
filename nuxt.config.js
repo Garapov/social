@@ -45,6 +45,7 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    '@nuxtjs/firebase'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -58,6 +59,25 @@ export default {
     manifest: {
       lang: 'en',
     },
+  },
+  firebase: {
+    config: {
+      apiKey: "AIzaSyBb42Y5XHGu_dqMRYohUJ-By2XDZZFimNM",
+      authDomain: "social-e0b20.firebaseapp.com",
+      projectId: "social-e0b20",
+      storageBucket: "social-e0b20.appspot.com",
+      messagingSenderId: "902238642899",
+      appId: "1:902238642899:web:f9b2dc7ea940d05841aa26",
+      measurementId: "G-TY946L019G"
+    },
+    services: {
+      auth: {
+        ssr: true
+      },
+      database: true,
+      performance: true,
+      analytics: true,
+    }
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
